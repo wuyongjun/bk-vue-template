@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cube</title>
+	<style type="text/css">
+		html {
+			background: linear-gradient(#9ed128 0%,#358b98 80%);
+			opacity: 0.8;
+			height: 100%;
+		}
+		.container {
+			margin-top: 200px;
+			perspective: 500px;
+		}
+		.cube {
+			width: 200px;
+			height: 200px;
+			margin: auto;
+			position: relative;
+			transform-style: preserve-3d;
+			animation: cube 15s infinite;
+		}
+		.cube > div {
+			width: 100%;
+			height: 100%;
+			opacity: 0.9;
+			position: absolute;
+			color: white;
+			font-size: 20px;
+			border: 1px solid #fff;
+			/*text-align: center;
+			line-height: 200px;*/
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: all 2s ease;
+		}
+		.item-top {
+			transform: rotateX(90deg) translateZ(100px);
+			background: orange;
+
+		}
+		.item-bottom {
+			transform: rotateX(90deg) translateZ(-100px);
+			background: yellow;
+		}
+		.item-front {
+			transform: translateZ(100px);
+			background: darkgray;
+		}
+		/*.item-front:hover {
+			transform: rotateX(90deg) rotateY(180deg) scale(1.5);
+			margin-right: 200px;
+			padding-top: 100px;
+		}*/
+		.item-back {
+			transform: translateZ(-100px);
+			background: red;
+		}
+		.item-left {
+			transform: rotateY(90deg) translateZ(100px);
+			background: blue;
+		}
+		.item-right {
+			transform: rotateY(90deg) translateZ(-100px);
+		}
+		@keyframes cube {
+			0% {
+				transform: rotateX(0deg) rotateY(0deg);
+			}
+			50% {
+				transform: rotateX(360deg) rotateY(360deg) scale(2);
+			}
+			100% {
+				transform: rotateX(0deg) rotateY(0deg);
+			}
+		}
+
+		.cube:hover .item-top {
+			transform: rotateX(90deg) translateZ(200px) scale(1.5);
+		}
+		.cube:hover .item-bottom {
+			transform: rotateX(90deg) translateZ(-200px) scale(1.5);
+		}
+		.cube:hover .item-front {
+			transform: translateZ(200px) scale(1.5);
+		}
+		.cube:hover .item-back {
+			transform: translateZ(-200px) scale(1.5);
+		}
+		.cube:hover .item-left {
+			transform: rotateY(90deg) translateZ(200px) scale(1.5);
+		}
+		.cube:hover .item-right {
+			transform: rotateY(90deg) translateZ(-200px) scale(1.5);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="cube">
+			<div class="item-top">top</div>
+			<div class="item-bottom">bottom</div>
+			<div class="item-left">left</div>
+			<div class="item-right">right</div>
+			<div class="item-front">front</div>
+			<div class="item-back">back</div>
+		</div>
+	</div>
+</body>
+</html>
